@@ -1,0 +1,27 @@
+.body {
+    max-width: 800px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 30px;
+    margin: auto;
+}
+
+.text-body{
+    padding: auto;
+    padding-bottom: 5px;
+    text-align: start;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(176, 176, 176);
+    margin-bottom: 25px;
+}
+
+.head-filing{
+    padding: auto;
+    margin: 10px;
+}
+
+.filing-body{
+    padding: 0;
+}

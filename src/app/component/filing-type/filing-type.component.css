@@ -1,0 +1,14 @@
+.type-filing{
+    font-size: 15px;
+    font-weight: 600;
+    text-align: start;
+}
+
+.need{
+  font-size: 6px;
+  color: red;
+  position: relative;
+  top: -6px;
+  -webkit-text-stroke: 0.3px red;
+  font-weight: bold;
+}

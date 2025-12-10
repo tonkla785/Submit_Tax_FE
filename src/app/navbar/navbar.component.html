@@ -1,3 +1,41 @@
-<p>navbar works!</p>
-<app-input-detail></app-input-detail>
-<app-confirm-review></app-confirm-review>
+<nav class="navbar nav-style">
+  <span class="info-nav">
+    Time in Thailand: {{time | timeTh}} (GMT+7) | {{time | dateFormat}} &nbsp;
+    <i class="bi bi-person-circle icon-profile"></i>&nbsp;
+    <a class="nav-text">Lorem.Co.Ltd,</a>&nbsp;
+    <i class="bi bi-caret-down-fill"></i>
+  </span>
+
+</nav>
+<div class="data-detail">
+  <h1>Submit Tax Filing</h1>
+  <div class="step-wrapper">
+
+    <div class="step-row">
+      <div class="step-item">
+        <div class="circle active">1</div>
+      </div>
+
+      <div class="line"></div>
+
+      <div class="step-item">
+        <div class="circle">2</div>
+      </div>
+    </div>
+
+    <div class="label-row">
+      <div class="step-item">
+        <label class="step-label active">Input Detail</label>
+      </div>
+
+      <div class="step-item">
+        <label class="step-label">Review & Confirm</label>
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <app-input-detail></app-input-detail>
+    <app-confirm-review></app-confirm-review>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'timeTh',
+  standalone: true
+})
+export class TimeThPipe implements PipeTransform {
+
+  transform(value: any) {
+    if (!value) return '';
+
+    const date = new Date(value);
+
+    const Time: Intl.DateTimeFormatOptions = {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZone: 'Asia/Bangkok',
+    };
+
+    return new Intl.DateTimeFormat('th-TH', Time).format(date);
+  }
+
+}
