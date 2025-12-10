@@ -1,27 +1,61 @@
 .body {
-    max-width: 800px;
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 30px;
-    margin: auto;
+  max-width: 800px;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 30px;
+  margin: auto;
 }
 
-.text-body{
-    padding: auto;
-    padding-bottom: 5px;
-    text-align: start;
-    font-size: 20px;
-    font-weight: bold;
-    border-bottom: 1px solid rgb(176, 176, 176);
-    margin-bottom: 25px;
+.text-body {
+  padding: auto;
+  padding-bottom: 5px;
+  text-align: start;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(176, 176, 176);
+  margin-bottom: 25px;
 }
 
-.head-filing{
-    padding: auto;
-    margin: 10px;
+.head-filing {
+  padding: auto;
+  margin: 10px;
 }
 
-.filing-body{
-    padding: 0;
+.filing-body {
+  padding: 0;
+}
+
+.filing-month {
+  margin-top: 40px;
+  padding: 0;
+}
+
+.type-filing {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: start;
+}
+
+.need {
+  font-size: 6px;
+  color: red;
+  position: relative;
+  top: -6px;
+  -webkit-text-stroke: 0.3px red;
+  font-weight: bold;
+}
+
+.month-header {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: start;
+}
+
+.drop-down {
+  display: flex;      
+  flex-direction: row;
+  align-items: center;
+  text-align: start;
+  gap: 20px;
 }

@@ -1,0 +1,27 @@
+.custom-select-wrapper {
+  position: relative;
+  width: 150px;
+  display: inline-block;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 6px 30px 6px 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.custom-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: black;
+  font-size: 0.9rem;
+}

@@ -3,6 +3,20 @@
         <p class="text-body">1.Tax Filing Detail</p>
     </div>
     <div class="row head-filing">
-        <app-filing-type class="filing-body"></app-filing-type>
+        <div class="filing-body">
+            <p class="type-filing">
+                Type of filing <i class="bi bi-asterisk need"></i>
+            </p>
+            <app-filing-type></app-filing-type>
+        </div>
+        <div class="filing-month">
+            <p class="month-header">
+                VAT Month <i class="bi bi-asterisk need"></i>
+            </p>
+            <div class="drop-down">
+                <app-month></app-month>
+                <app-year></app-year>
+            </div>
+        </div>
     </div>
 </div>

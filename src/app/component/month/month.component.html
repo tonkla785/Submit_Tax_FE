@@ -1,1 +1,8 @@
-<p>month works!</p>
+<div class="custom-select-wrapper">
+  <select id="month" class="custom-select" [(ngModel)]="month">
+    <option *ngFor="let m of months" [value]="m.value" [disabled]="isDisabled(m.value)">
+      {{ m.name }}
+    </option>
+  </select>
+  <i class="bi bi-caret-down-fill custom-icon"></i>
+</div>
