@@ -1,14 +1,14 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { InputDetailComponent } from '../input-detail/input-detail.component';
-import { ConfirmReviewComponent } from '../confirm-review/confirm-review.component';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TimeThPipe } from '../util/time-th.pipe';
 import { DateFormatPipe } from '../util/date-format.pipe';
+import { RouterModule } from '@angular/router';
+import { ProgressComponent } from '../progress/progress.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [InputDetailComponent, ConfirmReviewComponent, TimeThPipe, DateFormatPipe],
+  imports: [TimeThPipe, DateFormatPipe,CommonModule, RouterModule,ProgressComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

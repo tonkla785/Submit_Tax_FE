@@ -8,9 +8,7 @@
         <p class="type-filing">
           Type of filing<i class="bi bi-asterisk need"></i>
         </p>
-        <app-filing-type
-          (filingChange)="onFilingChange($event)"
-        ></app-filing-type>
+        <app-filing-type (filingChange)="onFilingChange($event)" [valid]="errorCheck.errFilingType"></app-filing-type>
       </div>
 
       <div class="filing-month">
@@ -20,12 +18,12 @@
               VAT Month<i class="bi bi-asterisk need"></i>
             </p>
             <div class="drop-down-components">
-              <app-month (monthChange)="onMonthSelected($event)"></app-month>
-              <app-year (yearChange)="onYearSelected($event)"></app-year>
+              <app-month (monthChange)="onMonthSelected($event)" [valid]="errorCheck.errMonth"></app-month>
+              <app-year (yearChange)="onYearSelected($event)" [valid]="errorCheck.errYear"></app-year>
             </div>
           </div>
 
-          <div class="col" *ngIf="this.checkAdd">
+          <div class="col" *ngIf="this.addCheck">
             <p class="month-header">Type<i class="bi bi-asterisk need"></i></p>
             <div class="drop-down-components">
               <app-type></app-type>
@@ -42,33 +40,27 @@
 
     <div class="row">
       <p class="detail-text">
-        Provide total value taxable electronic service<i
-          class="bi bi-asterisk need"
-        ></i>
+        Provide total value taxable electronic service<i class="bi bi-asterisk need"></i>
       </p>
     </div>
 
     <div class="row">
-      <app-sale-amount
-        (totalChange)="onSaleAmountChange($event)"
-      ></app-sale-amount>
-      <app-tax-amount
-        [vatChange]="data.taxAmount"
-        (dataVat)="onVatChange($event)"
-      ></app-tax-amount>
+      <app-sale-amount (totalChange)="onSaleAmountChange($event)" [valid]="errorCheck.errSaleAmount"></app-sale-amount>
+      <app-tax-amount [vatChange]="data.taxAmount" (dataVat)="onVatInput($event)"
+        [valid]="errorCheck.errTaxAmount"></app-tax-amount>
     </div>
 
-    <div class="container case" *ngIf="this.checkAdd">
+    <div class="container case" *ngIf="this.addCheck">
       <p class="detail-text">
         In case of late filling and payment,or additional filling
       </p>
-      <app-surcharge></app-surcharge>
-      <app-penalty></app-penalty>
-      <app-total-amount></app-total-amount>
+      <app-surcharge [surChargeData]="data.surcharge"></app-surcharge>
+      <app-penalty [penaltyData]="data.penalty"></app-penalty>
+      <app-total-amount [totalData]="data.totalAmount"></app-total-amount>
     </div>
   </div>
   <div class="container btn-layout">
-    <button class="btn-style-back">Back</button>
+    <button class="btn-style-back" (click)="goBack()">Back</button>
     <button class="btn-style-next" (click)="onNext()">Next</button>
   </div>
 </div>

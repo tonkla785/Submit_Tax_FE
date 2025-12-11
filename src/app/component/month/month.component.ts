@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class MonthComponent implements OnInit {
   @Output() monthChange = new EventEmitter<any>();
+  @Input() valid: boolean | null | undefined;
 
   month: string = '';
 

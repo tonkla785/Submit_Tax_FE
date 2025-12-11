@@ -1,0 +1,25 @@
+<div class="container mt-4 d-flex flex-column align-items-center">
+
+    <div class="d-flex align-items-center" style="width: 300px; justify-content: space-between;">
+        <div class="step-item">
+            <div class="circle" [ngClass]="{
+    'active2': currentStep==1,
+    'active1': currentStep==2
+  }">1</div>
+        </div>
+
+        <div class="line">
+            <div class="line-progress" [ngStyle]="{'width': currentStepProgress + '%'}"></div>
+        </div>
+
+        <div class="step-item">
+            <div class="circle" [ngClass]="{'active2': currentStep==2}">2</div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-2" style="width: 300px;">
+        <span class="step-label" [ngClass]="{'active': currentStep>=1}">Input Detail</span>
+        <span class="step-label" [ngClass]="{'active': currentStep>=2}">Review & Confirm</span>
+    </div>
+
+</div>

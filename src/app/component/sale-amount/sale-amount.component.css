@@ -36,3 +36,8 @@
   font-size: 0.9rem;
   pointer-events: none;
 }
+
+.is-invalid {
+  border: 2px solid red;
+  background-image: none !important;
+}

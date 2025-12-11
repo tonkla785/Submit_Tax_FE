@@ -1,1 +1,96 @@
-<p>confirm-review works!</p>
+<div class="col">
+    <div class="container body">
+        <div class="container">
+            <p class="text-body">Tax Filing Detail</p>
+        </div>
+        <div class="row head-filing">
+            <div class="filing-body">
+                <div class="type-filing">
+                    <div class="head">
+                        Type of filing
+                    </div>
+                    <div class="value">
+                        {{this.taxData?.filingType}}
+                    </div>
+                </div>
+                <div class="type-filing">
+                    <div class="head">
+                        VAT Month
+                    </div>
+                    <div class="value">
+                        {{this.taxData?.month}} {{this.taxData?.year}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-body-2-row">
+            <span class="text-body-2">Tax Computation</span>
+        </div>
+
+        <div class="form-row">
+            <p class="form-label">Total value of taxable electronic service exclusive of VAT</p>
+            <div class="input-wrapper">
+                <input type="text" class="form-control" disabled [value]="taxData?.saleAmount | number:'1.2-2'"
+                    readonly />
+                <span class="holder">THB</span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="column-row">
+                <p class="form-label">
+                    Total VAT to be remitted
+                </p>
+                <div class="text-under">
+                    <span>(7% of Total value of taxable electronic service exclusive of VAT)</span>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <input type="text" class="form-control" disabled [value]="taxData?.taxAmount| number:'1.2-2'"
+                    readonly />
+                <span class="holder">THB</span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <p class="form-label">Total Amount Payable</p>
+            <div class="input-wrapper">
+                <input type="text" class="form-control" disabled [value]="taxData?.totalAmount| number:'1.2-2'"
+                    readonly />
+                <span class="holder">THB</span>
+            </div>
+        </div>
+        <div class="container text-body-2-row">
+            <span class="text-body-2">Declaration</span>
+        </div>
+        <div class="form-row-last">
+            <p class="form-label-last">
+                I hereby certify that information given above are true and correct and agree to be bound by such
+                information
+            </p>
+        </div>
+    </div>
+    <div class="container btn-layout">
+        <button class="btn-style-back" (click)="goBack()">Back</button>
+        <button class="btn-style-next" (click)="onSubmit()">Confirm and Submit</button>
+    </div>
+</div>
+
+
+<div #taxDataModal class="modal fade" id="taxDataModal" tabindex="-1" aria-labelledby="taxDataModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="taxDataModalLabel">Tax Data JSON</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <pre>{{ taxDataJson }}</pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

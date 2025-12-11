@@ -8,6 +8,7 @@
       appInputChange
       [(ngModel)]="input"
       (ngModelChange)="onTotalChange()"
+      [ngClass]="{ 'is-invalid': valid === false }"
     />
     <span class="holder">THB</span>
   </div>

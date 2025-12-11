@@ -1,25 +1,16 @@
 <div class="col-7 input-radio">
-  <div class="radio-box">
+  <div class="radio-box" *ngFor="let option of typeFilingData">
     <input
       type="radio"
       name="typeFiling"
       class="radio-style"
       [(ngModel)]="typeFiling"
-      [value]="'0'"
+      [value]="option.key"
       (ngModelChange)="onTypeChange($event)"
     />
-    <label>Ordinary Filing <i class="bi bi-question-circle-fill"></i></label>
-  </div>
-
-  <div class="radio-box">
-    <input
-      type="radio"
-      name="typeFiling"
-      class="radio-style"
-      [(ngModel)]="typeFiling"
-      [value]="'1'"
-      (ngModelChange)="onTypeChange($event)"
-    />
-    <label>Additional Filing <i class="bi bi-question-circle-fill"></i></label>
+    <label class="text-label" [ngClass]="{ 'is-invalid': valid === false }">
+      {{ option.label }}
+      <i class="bi bi-question-circle-fill"></i>
+    </label>
   </div>
 </div>

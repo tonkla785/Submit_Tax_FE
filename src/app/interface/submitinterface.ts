@@ -8,3 +8,11 @@ export interface TaxData {
   penalty?: number;
   totalAmount?: number;
 }
+
+export interface ErrorField{
+    errFilingType?: boolean;
+    errMonth?: boolean;
+    errYear?: boolean;
+    errSaleAmount?:boolean;
+    errTaxAmount?:boolean;
+}

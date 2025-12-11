@@ -5,12 +5,17 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   standalone: true,
 })
 export class InputChangeDirective {
-  constructor(private ef: ElementRef) {}
+  constructor(private ef: ElementRef) { }
 
   @HostListener('input', ['$event'])
   onInputChange(event: any) {
     const input = event.target;
     let value = input.value.replace(/[^0-9.]/g, '');
+    
+    if (value === '') {
+      input.value = '0';
+      return;
+    }
 
     if (value.startsWith('0')) {
       value = value.replace(/^0+/, '');
@@ -37,7 +42,12 @@ export class InputChangeDirective {
 
     const num = parseFloat(value);
 
-    if (!isNaN(num)) {
+    if (isNaN(num)) {
+      input.value = (0).toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    } else {
       input.value = num.toLocaleString('en-US', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class YearComponent implements OnInit {
   @Output() yearChange = new EventEmitter<any>();
+  @Input() valid: boolean | null | undefined;
 
   year: string = '';
   years: { value: string; name: string }[] = [];

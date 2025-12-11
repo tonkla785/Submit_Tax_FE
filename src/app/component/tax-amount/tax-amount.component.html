@@ -8,7 +8,7 @@
       appInputChange
       [(ngModel)]="output"
       (ngModelChange)="onInputChange($event)"
-      [ngClass]="{ 'is-invalid': !valid }"
+      [ngClass]="{ 'is-invalid': valid === false }"
     />
     <span class="holder">THB</span>
   </div>

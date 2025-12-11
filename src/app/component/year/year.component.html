@@ -1,10 +1,7 @@
 <div class="custom-select-wrapper">
-  <select id="month" class="custom-select" [(ngModel)]="year" (change)="onYearChange($event)">
-    <option
-      *ngFor="let y of years"
-      [value]="y.value"
-      [disabled]="isDisabled(y.value)"
-    >
+  <select id="month" class="custom-select" [(ngModel)]="year" (change)="onYearChange($event)"
+    [ngClass]="{ 'is-invalid': valid === false }">
+    <option *ngFor="let y of years" [value]="y.value" [disabled]="isDisabled(y.value)">
       {{ y.name }}
     </option>
   </select>

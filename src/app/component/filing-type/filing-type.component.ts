@@ -1,22 +1,33 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-filing-type',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './filing-type.component.html',
   styleUrl: './filing-type.component.css',
 })
 export class FilingTypeComponent {
-  @Output() filingChange = new EventEmitter<any>();
-  typeFiling: string = '';
+   @Output() filingChange = new EventEmitter<any>();
+  @Input() valid: boolean | null | undefined;
+
+  typeFiling: string | undefined;
   surcharge: number | undefined;
   penalty: number | undefined;
 
-  onTypeChange(value: string) {
-    this.typeFiling = value;
-    if (value === '1') {
+  typeFilingData = [
+    { key: '0', label: 'Ordinary Filing' },
+    { key: '1', label: 'Additional Filing' }
+  ];
+
+  onTypeChange(key: string) {
+    this.typeFiling = key;
+
+    const selected = this.typeFilingData.find(item => item.key === key);
+
+    if (key === '1') {
       this.surcharge = 0;
       this.penalty = 0;
     } else {
@@ -25,7 +36,8 @@ export class FilingTypeComponent {
     }
 
     this.filingChange.emit({
-      typeFiling: this.typeFiling,
+      key: key,
+      label: selected?.label,
       surcharge: this.surcharge,
       penalty: this.penalty,
     });
