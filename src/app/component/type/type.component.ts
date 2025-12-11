@@ -3,12 +3,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-surcharge',
+  selector: 'app-type',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './surcharge.component.html',
-  styleUrl: './surcharge.component.css',
+  templateUrl: './type.component.html',
+  styleUrl: './type.component.css'
 })
-export class SurchargeComponent {
-  surcharge: number | undefined;
+export class TypeComponent {
+  type:string = "On-time";
 }

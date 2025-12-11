@@ -1,1 +1,18 @@
-<p>surcharge works!</p>
+<div class="form-row">
+  <p class="form-label">
+    3.Surcharge <i class="bi bi-question-circle-fill"></i>
+  </p>
+
+  <div class="input-wrapper">
+    <input
+      type="number"
+      class="form-control"
+      readonly
+      disabled
+      placeholder="0.00"
+      appInputChange
+      [(ngModel)]="surcharge"
+    />
+    <span class="holder">THB</span>
+  </div>
+</div>

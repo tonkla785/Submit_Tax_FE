@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -7,15 +7,22 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './year.component.html',
-  styleUrls: ['./year.component.css']
+  styleUrls: ['./year.component.css'],
 })
 export class YearComponent implements OnInit {
+  @Output() yearChange = new EventEmitter<any>();
+
   year: string = '';
-  years: { value: string, name: string }[] = [];
+  years: { value: string; name: string }[] = [];
 
   ngOnInit(): void {
     this.startYears(2020);
     this.selectYear();
+  }
+
+  onYearChange(event: any) {
+    this.year = event.target.value;
+    this.yearChange.emit(this.year);
   }
 
   private startYears(startYear: number): void {

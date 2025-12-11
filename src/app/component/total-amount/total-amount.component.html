@@ -1,1 +1,18 @@
-<p>total-amount works!</p>
+<div class="form-row">
+  <p class="form-label">5.Total amount of VAT,surcharge,and penalty to be remitted</p>
+  <div class="input-wrapper">
+    <input
+      type="number"
+      class="form-control"
+      readonly
+      disabled
+      placeholder="0.00"
+      appInputChange
+      [(ngModel)]="totalAmount"
+    />
+    <span class="holder">THB</span>
+  </div>
+</div>
+<div class="text-under">
+  <span>(2.+3.+4.)</span>
+</div>

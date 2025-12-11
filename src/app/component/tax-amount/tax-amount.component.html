@@ -1,1 +1,15 @@
-<p>tax-amount works!</p>
+<div class="form-row">
+  <p class="form-label">2.Total VAT to be remitted (7% of 1.)</p>
+
+  <div class="input-wrapper">
+    <input
+      type="text"
+      class="form-control"
+      appInputChange
+      [(ngModel)]="output"
+      (ngModelChange)="onInputChange($event)"
+      [ngClass]="{ 'is-invalid': !valid }"
+    />
+    <span class="holder">THB</span>
+  </div>
+</div>

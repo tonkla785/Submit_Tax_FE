@@ -1,22 +1,74 @@
-<div class="container body">
+<div class="col">
+  <div class="container body">
     <div class="container">
-        <p class="text-body">1.Tax Filing Detail</p>
+      <p class="text-body">1.Tax Filing Detail</p>
     </div>
     <div class="row head-filing">
-        <div class="filing-body">
-            <p class="type-filing">
-                Type of filing <i class="bi bi-asterisk need"></i>
-            </p>
-            <app-filing-type></app-filing-type>
-        </div>
-        <div class="filing-month">
+      <div class="filing-body">
+        <p class="type-filing">
+          Type of filing<i class="bi bi-asterisk need"></i>
+        </p>
+        <app-filing-type
+          (filingChange)="onFilingChange($event)"
+        ></app-filing-type>
+      </div>
+
+      <div class="filing-month">
+        <div class="row-input">
+          <div class="col">
             <p class="month-header">
-                VAT Month <i class="bi bi-asterisk need"></i>
+              VAT Month<i class="bi bi-asterisk need"></i>
             </p>
-            <div class="drop-down">
-                <app-month></app-month>
-                <app-year></app-year>
+            <div class="drop-down-components">
+              <app-month (monthChange)="onMonthSelected($event)"></app-month>
+              <app-year (yearChange)="onYearSelected($event)"></app-year>
             </div>
+          </div>
+
+          <div class="col" *ngIf="this.checkAdd">
+            <p class="month-header">Type<i class="bi bi-asterisk need"></i></p>
+            <div class="drop-down-components">
+              <app-type></app-type>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+
+    <div class="container text-body-2-row">
+      <span class="text-body-2">2.Tax Computation</span>
+      <span class="text-left">View Exchange Rate</span>
+    </div>
+
+    <div class="row">
+      <p class="detail-text">
+        Provide total value taxable electronic service<i
+          class="bi bi-asterisk need"
+        ></i>
+      </p>
+    </div>
+
+    <div class="row">
+      <app-sale-amount
+        (totalChange)="onSaleAmountChange($event)"
+      ></app-sale-amount>
+      <app-tax-amount
+        [vatChange]="data.taxAmount"
+        (dataVat)="onVatChange($event)"
+      ></app-tax-amount>
+    </div>
+
+    <div class="container case" *ngIf="this.checkAdd">
+      <p class="detail-text">
+        In case of late filling and payment,or additional filling
+      </p>
+      <app-surcharge></app-surcharge>
+      <app-penalty></app-penalty>
+      <app-total-amount></app-total-amount>
+    </div>
+  </div>
+  <div class="container btn-layout">
+    <button class="btn-style-back">Back</button>
+    <button class="btn-style-next" (click)="onNext()">Next</button>
+  </div>
 </div>

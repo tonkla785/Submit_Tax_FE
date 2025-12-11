@@ -1,13 +1,25 @@
-<div>
-    <div class="col-7 input-radio">
-        <div class="radio-box">
-            <input type="radio" name="typeFiling" class="radio-style" [(ngModel)]="typeFiling" value="0" />
-            <label>Ordinary Filing <i class="bi bi-question-circle-fill"></i></label>
-        </div>
+<div class="col-7 input-radio">
+  <div class="radio-box">
+    <input
+      type="radio"
+      name="typeFiling"
+      class="radio-style"
+      [(ngModel)]="typeFiling"
+      [value]="'0'"
+      (ngModelChange)="onTypeChange($event)"
+    />
+    <label>Ordinary Filing <i class="bi bi-question-circle-fill"></i></label>
+  </div>
 
-        <div class="radio-box">
-            <input type="radio" name="typeFiling" class="radio-style" [(ngModel)]="typeFiling" value="1" />
-            <label>Additional Filing <i class="bi bi-question-circle-fill"></i></label>
-        </div>
-    </div>
+  <div class="radio-box">
+    <input
+      type="radio"
+      name="typeFiling"
+      class="radio-style"
+      [(ngModel)]="typeFiling"
+      [value]="'1'"
+      (ngModelChange)="onTypeChange($event)"
+    />
+    <label>Additional Filing <i class="bi bi-question-circle-fill"></i></label>
+  </div>
 </div>

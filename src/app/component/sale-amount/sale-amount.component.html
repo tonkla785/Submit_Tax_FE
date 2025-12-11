@@ -1,1 +1,14 @@
-<p>sale-amount works!</p>
+<div class="form-row">
+  <p class="form-label">1.Total value of taxable electronic service exclusive of VAT</p>
+
+  <div class="input-wrapper">
+    <input
+      type="text"
+      class="form-control"
+      appInputChange
+      [(ngModel)]="input"
+      (ngModelChange)="onTotalChange()"
+    />
+    <span class="holder">THB</span>
+  </div>
+</div>

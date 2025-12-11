@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -7,9 +7,11 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './month.component.html',
-  styleUrls: ['./month.component.css']
+  styleUrls: ['./month.component.css'],
 })
 export class MonthComponent implements OnInit {
+  @Output() monthChange = new EventEmitter<any>();
+
   month: string = '';
 
   months = [
@@ -29,6 +31,13 @@ export class MonthComponent implements OnInit {
 
   ngOnInit(): void {
     this.setDefaultMonth();
+  }
+
+  onMonthChange(event: any) {
+    const value = event.target.value;
+    const selectedMonth = this.months.find((m) => m.value === value);
+
+    this.monthChange.emit(selectedMonth?.name);
   }
 
   private setDefaultMonth(): void {
