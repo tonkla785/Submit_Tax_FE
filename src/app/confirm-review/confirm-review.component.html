@@ -56,8 +56,9 @@
         <div class="form-row">
             <p class="form-label">Total Amount Payable</p>
             <div class="input-wrapper">
-                <input type="text" class="form-control" disabled [value]="taxData?.totalAmount| number:'1.2-2'"
-                    readonly />
+                <input type="text" class="form-control" disabled [value]="(taxData?.totalAmount && taxData?.totalAmount !== 0 
+          ? taxData?.totalAmount 
+          : taxData?.taxAmount) | number:'1.2-2'" readonly />
                 <span class="holder">THB</span>
             </div>
         </div>
@@ -78,19 +79,20 @@
 </div>
 
 
-<div #taxDataModal class="modal fade" id="taxDataModal" tabindex="-1" aria-labelledby="taxDataModalLabel" aria-hidden="true">
+<div #taxDataModal class="modal fade" id="taxDataModal" tabindex="-1" aria-labelledby="taxDataModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="taxDataModalLabel">Tax Data JSON</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="taxDataModalLabel">Tax Data JSON</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <pre>{{ taxDataJson }}</pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <pre>{{ taxDataJson }}</pre>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
